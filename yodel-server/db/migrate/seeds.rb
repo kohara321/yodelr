@@ -32,12 +32,13 @@ def insert(data, index)
     thumbnail = data["data"]["thumbnail"]
     genre = data["data"]["genre"]
     short_description = data["data"]["short_description"]
+    description = data["data"]["description"]
     publisher = data["data"]["publisher"]
     developer = data["data"]["developer"]
     release_date = data["data"]["release_date"]
     game_url = data["data"]["game_url"]
 
-    Artwork.create(key: key, title: title, thumbnail: thumbnail, short_description: short_description, publisher: publisher, developer: developer, release_date: release_date, game_url: game_url)
+    Artwork.create(key: key, title: title, thumbnail: thumbnail, short_description: short_description, description: description, publisher: publisher, developer: developer, release_date: release_date, game_url: game_url)
     # db = SQLite3::Database.open “table”
     # db.execute “INSERT INTO artworks VALUES (#{index}, #{key}, ‘#{title}‘, ‘#{artist}‘, ‘#{img_link}’)”
   end
