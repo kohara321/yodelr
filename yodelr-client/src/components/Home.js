@@ -1,3 +1,11 @@
-import React from 'react';
-//contains the home page information
+import React from "react";
+
+function Home() {
+    return (
+        <div id="home">
+            <h1>Welcome to Yodelr</h1>
+        </div>
+    );
+}
+ 
 export default Home;
