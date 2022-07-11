@@ -14,12 +14,9 @@
 ActiveRecord::Schema.define(version: 20220711185059) do
 
   create_table "games", force: :cascade do |t|
-    t.integer  "key"
     t.string   "title"
     t.string   "thumbnail"
-    t.string   "genre"
     t.string   "short_description"
-    t.string   "description"
     t.string   "publisher"
     t.string   "developer"
     t.datetime "release_date"
