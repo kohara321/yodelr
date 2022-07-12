@@ -3,8 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import GameCard from './GameCard'
-function GameList({games}){
+function GameList({games,onButtonClick}){
 
+    // prepares data to render
     const gameInfo = games.map(game => {
         return(
             <GameCard key={game.id}
@@ -19,6 +20,7 @@ function GameList({games}){
     })
 
     return(
+        //render data
         <div id="cards">
         <Container fluid="md">
         <Row xs={1} md={4} className="m-4 g-4 p-5">
