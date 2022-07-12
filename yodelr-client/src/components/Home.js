@@ -1,9 +1,10 @@
 import React from "react";
+import GameList from "./GameList";
 
-function Home() {
+function Home({games}) {
     return (
         <div id="home">
-            <h1>Welcome to Yodelr</h1>
+            <GameList games={games} />
         </div>
     );
 }

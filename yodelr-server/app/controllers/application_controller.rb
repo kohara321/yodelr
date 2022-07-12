@@ -1,14 +1,15 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
+  set :default_content_type, 'application/json'
 
   configure do
     set :public_folder, 'public'
-    set :views, 'app/views'
   end
 
-  get "/" do
-    erb :welcome
+  get "/games" do
+    games = Game.all.limit(5)
+    games.to_json
   end
 
 end

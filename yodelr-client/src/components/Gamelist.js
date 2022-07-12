@@ -3,21 +3,28 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import GameCard from './GameCard'
-function Gamelist(games){
+function GameList({games}){
 
-    gameInfo = games.map(game => {
+    const gameInfo = games.map(game => {
         return(
-            <GameCard />
+            <GameCard key={game.id}
+            title={game.title}
+            thumbnail={game.thumbnail}
+            description={game.short_description}
+            publisher={game.publisher}
+            developer={game.developer}
+            releaseDate={game.releaseDate}
+            gameURL={game.game_url} />
         )
     })
 
     return(
         <Container fluid>
-        <Row>
-          <Col md={4}>1 of 1</Col>
+        <Row xs={1} md={2} className="g-4">
+          {/* <Col>1 of 1</Col> */}
             {gameInfo}
         </Row>
       </Container>
     );
 }
-export default Gamelist;
+export default GameList;
