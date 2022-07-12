@@ -12,4 +12,28 @@ class ApplicationController < Sinatra::Base
     games.to_json
   end
 
+  get "/games" do
+    games = Game.all 
+    game.to_json
+  end
+
+  get "/publisher" do
+    game = Game.find_all(:publisher)
+    game.to_json
+  end
+
+  get "/developer" do
+    game = Game.find_all(:developer)
+    game.to_json
+  end
+
+  get "/release" do
+    game = Game.find_all(:release_date)
+    game.to_json
+  end
+
+
+
+
+
 end
