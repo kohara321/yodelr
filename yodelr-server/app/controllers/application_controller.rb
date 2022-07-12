@@ -8,27 +8,23 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/games" do
-    games = Game.all.limit(5)
+    games = Game.all
     games.to_json
   end
 
   get "/publisher" do
-    game = Game.find_all(:publisher)
+    game = Game.order(:publisher)
     game.to_json
   end
 
   get "/developer" do
-    game = Game.find_all(:developer)
+    game = Game.order(:developer)
     game.to_json
   end
 
   get "/release" do
-    game = Game.find_all(:release_date)
+    game = Game.order(:release_date)
     game.to_json
   end
-
-
-
-
 
 end
