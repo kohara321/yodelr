@@ -1,15 +1,20 @@
 import React from 'react';
-//all elements that relate to the navigation buttons
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
     function NavBar() {
         return (
-            <nav>
-                <a href="#home">Home</a>
-                <br></br>
-                <a href="#createreviews">Create Reviews</a>
-                <br></br>
-                <a href="#reviews">Reviews</a>
-            </nav>
+            <Navbar bg="dark" variant="dark">
+            <Container>
+              <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+              <Nav className="me-auto">
+                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#features">Reviews</Nav.Link>
+                <Nav.Link href="#pricing">Create</Nav.Link>
+              </Nav>
+            </Container>
+          </Navbar>
         );
     }
 

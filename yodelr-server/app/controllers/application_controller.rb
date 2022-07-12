@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/games" do
-    games = Game.all
+    games = Game.find(Game.pluck(:id).sample(40))
     games.to_json
   end
 

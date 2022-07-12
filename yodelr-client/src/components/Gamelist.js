@@ -19,12 +19,13 @@ function GameList({games}){
     })
 
     return(
-        <Container fluid>
-        <Row xs={1} md={2} className="g-4">
-          {/* <Col>1 of 1</Col> */}
+        <div id="cards">
+        <Container fluid="md">
+        <Row xs={1} md={4} className="m-4 g-4 p-5">
             {gameInfo}
         </Row>
       </Container>
+      </div>
     );
 }
 export default GameList;
