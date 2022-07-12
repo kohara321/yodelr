@@ -8,7 +8,7 @@ puts "Deleting old data..."
 
 Game.destroy_all
 
-game_ids = Array(1..50)
+game_ids = Array(1..500)
 
 def the_method(arr)
   arr.each_with_index do |games, index|
