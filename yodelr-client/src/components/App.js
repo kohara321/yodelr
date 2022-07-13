@@ -18,13 +18,6 @@ function App(){
     .catch((err) => console.error(err))
 },[])
 
-// useEffect(() => {
-//   fetch("http://localhost:4200/reviewed")
-//   .then(resp => resp.json())
-//   .then(data => setReviewGame(data))
-//   .catch((err) => console.error(err))
-// },[])
-
 function handleCardChange(e, gameToReview){
   if (e.target.textContent === "Review") {
     console.log(gameToReview)
@@ -48,6 +41,13 @@ function handleCardChange(e, gameToReview){
     })
   }
 }
+useEffect(() => {
+  fetch("http://localhost:4200/reviewed")
+  .then(resp => resp.json())
+  .then(data => setReviewGame(data))
+  .catch((err) => console.error(err))
+},[])
+
     return(
         <div>
           <NavBar />
