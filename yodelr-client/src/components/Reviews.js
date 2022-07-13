@@ -1,14 +1,17 @@
 import React from 'react';
-import GameCard from 'react';
+import GameCard from './GameCard';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function Reviews({reviewedGame}){
+    console.log(reviewedGame)
 
     const reviewedGameInfo = reviewedGame.map(game => {
-        return (
-            <GameCard key={game.id + "reviewed game"} games={game} />
+        return(
+            <GameCard key={game.id}
+            games={game}
+            />
         )
     })
     return(
