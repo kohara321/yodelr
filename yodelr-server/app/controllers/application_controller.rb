@@ -41,4 +41,22 @@ class ApplicationController < Sinatra::Base
     reviewed_games.to_json
   end
 
+  get "/reviews" do
+    review = Review.all
+    review.to_json
+  end
+
+  post "/reviews" do
+    reviews = Review.create(
+      game_id: params[:id]
+    )
+    reviews.to_json
+  end
+
+  patch "/reviews" do
+    review = Review.find(params[:id])
+    review.update(review: params[:review])
+    review.to_json
+  end
+
 end
