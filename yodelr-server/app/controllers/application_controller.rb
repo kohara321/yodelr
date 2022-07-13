@@ -1,5 +1,5 @@
 require './config/environment'
-
+require 'pry'
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
@@ -25,6 +25,20 @@ class ApplicationController < Sinatra::Base
   get "/release" do
     game = Game.order(:release_date)
     game.to_json
+  end
+
+  get "/reviewed" do
+    reviewed_games = Reviewed_game.all 
+    reviewed_games.to_json
+  end
+
+  post "/reviewed" do
+    reviewed_games = Reviewed_game.create(
+      title: params[:title],
+      thumbnail: params[:thumbnail],
+      short_description: params[:short_description]
+    )
+    reviewed_games.to_json
   end
 
 end

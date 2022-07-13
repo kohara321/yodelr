@@ -1,16 +1,20 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
 
-function GameCard(gameInfo) {
+
+function GameCard({games, onCardChange}){
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={gameInfo.thumbnail} />
+    <Card style={{ width: '18rem' }} onClick={(e) => onCardChange(e, games)}>
+      <Card.Img variant="top" src={games.thumbnail} />
       <Card.Body>
-        <Card.Title>{gameInfo.title}</Card.Title>
+        <Card.Title>{games.title}</Card.Title>
         <Card.Text>
-          {gameInfo.description}
+          {games.short_description}
         </Card.Text>
-        <Button variant="primary">Review</Button>
+        <Link to='/reviews'>
+            <Button variant="primary">Review</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
