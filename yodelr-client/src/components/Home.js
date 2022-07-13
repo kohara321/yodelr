@@ -1,10 +1,10 @@
 import React from "react";
 import GameList from "./GameList";
 
-function Home({games}) {
+function Home({games, onCardChange}) {
     return (
         <div id="home">
-            <GameList games={games} />
+            <GameList games={games} onCardChange={onCardChange} />
         </div>
     );
 }
