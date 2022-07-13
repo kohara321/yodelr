@@ -1,16 +1,17 @@
 import React from 'react';
 import GameCard from './GameCard';
+import ReviewCard from './ReviewCard';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function Reviews({reviewedGame}){
-    console.log(reviewedGame)
+function Reviews({reviewedGame, onDeleteClick}){
 
     const reviewedGameInfo = reviewedGame.map(game => {
         return(
-            <GameCard key={game.id}
+            <ReviewCard key={game.id}
             games={game}
+            onDeleteClick={onDeleteClick}
             />
         )
     })
