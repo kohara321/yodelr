@@ -49,6 +49,16 @@ useEffect(() => {
   .catch((err) => console.error(err))
 },[])
 
+function handleRemove(reviewToRemove) {
+  console.log(reviewToRemove)
+    fetch(`http://localhost:4200/reviewed/` + reviewToRemove.id, {
+      method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(() =>  setReviewGame(reviewGame.filter((review) => review.title !== reviewToRemove.title)))
+    alert(`Removed ${reviewToRemove.title}'s Review`);
+}
+
     return(
         <div>
           <NavBar />
@@ -57,7 +67,7 @@ useEffect(() => {
             <Home games={games} onCardChange={handleCardChange} />
           </Route>
           <Route path="/reviews">
-            <Reviews reviewedGame={reviewGame} />
+            <Reviews reviewedGame={reviewGame} onDeleteClick={handleRemove} />
           </Route>
           <Route path="/create">
             <CreateReviews />

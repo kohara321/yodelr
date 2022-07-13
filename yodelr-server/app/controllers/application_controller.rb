@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
     games.to_json
   end
 
+  get "/games/:id" do
+    game = Game.find(params[:id])
+    game.to_json
+  end
+
   get "/publisher" do
     game = Game.order(:publisher)
     game.to_json
@@ -39,6 +44,17 @@ class ApplicationController < Sinatra::Base
       short_description: params[:short_description]
     )
     reviewed_games.to_json
+  end
+
+  get "/reviewed/:id" do
+    reviewed_games = Reviewed_game.find(params[:id])
+    reviewed_games.to_json 
+  end
+
+  delete "/reviewed/:id" do
+    reviewed_games = Reviewed_game.find(params[:id])
+    reviewed_games.destroy 
+    reviewed_games.to_json 
   end
 
   get "/reviews" do
