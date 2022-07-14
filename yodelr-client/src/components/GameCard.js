@@ -29,21 +29,38 @@ function GameCard({games, onCardChange, value, setValue}){
         }
     }
 
-    function handleModalChange(e, modalToUpdate){
-        console.log(modalToUpdate.id)
-        fetch(`http://localhost:4200/reviews/` + modalToUpdate.id, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            review: editingValue,
-          }),
-        })
-        .then(resp => resp.json())
-        .then(review => console.log(review))
-      }
+    // function handleModalChange(e, modalToUpdate){
+    //     console.log(modalToUpdate.id)
+    //     fetch(`http://localhost:4200/reviews/` + modalToUpdate.id, {
+    //       method: "PATCH",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         "Accept": "application/json"
+    //       },
+    //       body: JSON.stringify({
+    //         review: editingValue,
+    //       }),
+    //     })
+    //     .then(resp => resp.json())
+    //     .then(review => console.log(review))
+    //   }
+
+    function handleModalChange(e, modalToUpdate) {
+      console.log(modalToUpdate.id)
+      fetch(`http://localhost:4200/reviews`, {
+        method: "POST",
+        headers: new Headers({
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        }),
+        body: JSON.stringify({
+          game_id: modalToUpdate.id,
+          review: editingValue
+        }),
+      })
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+    }
 
   return (
     <>

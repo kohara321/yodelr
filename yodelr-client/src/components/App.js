@@ -9,7 +9,6 @@ import { Route, Switch } from "react-router-dom";
 function App(){
   const [games, setGames] = useState([])
   const [reviewGame, setReviewGame] = useState([])
-  const [value, setValue] = useState();
 
   //initial fetch
   useEffect(() => {
