@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
 
   get "/reviewed" do
     reviewed_games = Reviewed_game.all 
-    reviewed_games.to_json
+    reviewed_games.to_json(include: { game: { include: :reviews } })
   end
 
   post "/reviewed" do
