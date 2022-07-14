@@ -1,5 +1,4 @@
 import React from 'react';
-import GameCard from './GameCard';
 import ReviewCard from './ReviewCard';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

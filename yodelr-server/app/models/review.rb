@@ -1,4 +1,7 @@
 class Review < ActiveRecord::Base
     belongs_to :game
-    belongs_to :user
+
+    def self.delete_empty
+        self.where(review: nil).destroy_all
+    end
 end

@@ -62,6 +62,11 @@ class ApplicationController < Sinatra::Base
     review.to_json
   end
 
+  get "/reviews/:id" do
+    review - Review.find(params[:id])
+    review.to_json
+  end
+
   post "/reviews" do
     reviews = Review.create(
       game_id: params[:id]
@@ -69,7 +74,7 @@ class ApplicationController < Sinatra::Base
     reviews.to_json
   end
 
-  patch "/reviews" do
+  patch "/reviews/:id" do
     review = Review.find(params[:id])
     review.update(review: params[:review])
     review.to_json

@@ -10,7 +10,9 @@ import { Route, Switch } from "react-router-dom";
 function App(){
   const [games, setGames] = useState([])
   const [reviewGame, setReviewGame] = useState([])
+  const [value, setValue] = useState();
 
+  //initial fetch
   useEffect(() => {
     fetch("http://localhost:4200/games")
     .then(resp => resp.json())
@@ -20,7 +22,7 @@ function App(){
 
 function handleCardChange(e, gameToReview){
   if (e.target.textContent === "Review") {
-    console.log(gameToReview)
+    // console.log(gameToReview)
     fetch(`http://localhost:4200/reviewed`, {
       method: "POST",
       headers: new Headers({
@@ -50,13 +52,12 @@ useEffect(() => {
 },[])
 
 function handleRemove(reviewToRemove) {
-  console.log(reviewToRemove)
+  // console.log(reviewToRemove)
     fetch(`http://localhost:4200/reviewed/` + reviewToRemove.id, {
       method: "DELETE"
     })
     .then(res => res.json())
     .then(() =>  setReviewGame(reviewGame.filter((review) => review.title !== reviewToRemove.title)))
-    alert(`Removed ${reviewToRemove.title}'s Review`);
 }
 
     return(
