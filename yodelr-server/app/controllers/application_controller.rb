@@ -8,27 +8,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/games" do
-    games = Game.find(Game.pluck(:id).sample(40))
+    games = Game.find(Game.pluck(:id).sample(10))
     games.to_json
   end
 
   get "/games/:id" do
     game = Game.find(params[:id])
-    game.to_json
-  end
-
-  get "/publisher" do
-    game = Game.order(:publisher)
-    game.to_json
-  end
-
-  get "/developer" do
-    game = Game.order(:developer)
-    game.to_json
-  end
-
-  get "/release" do
-    game = Game.order(:release_date)
     game.to_json
   end
 

@@ -9,7 +9,7 @@ function ReviewCard({games, onDeleteClick}){
       <Card.Body>
         <Card.Title>{games.title}</Card.Title>
         <Card.Text>
-          {games.short_description}
+          {/* {games.short_description} */}
         </Card.Text>
         <Button variant="primary" onClick={() => onDeleteClick(games)}>Delete</Button>
       </Card.Body>
