@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Home from './Home';
 import NavBar from './NavBar';
 import Reviews from './Reviews';
-import CreateReviews from './CreateReviews';
-import AddReviewForm from './AddReviewForm';
+// import CreateReviews from './CreateReviews';
 import { Route, Switch } from "react-router-dom";
 
 
@@ -70,12 +69,9 @@ function handleRemove(reviewToRemove) {
           <Route path="/reviews">
             <Reviews reviewedGame={reviewGame} onDeleteClick={handleRemove} />
           </Route>
-          <Route path="/create">
+          {/* <Route path="/create">
             <CreateReviews />
-          </Route>
-          <Route path="/add_review">
-            <AddReviewForm />
-          </Route>
+          </Route> */}
           </Switch>
         </div>
     )

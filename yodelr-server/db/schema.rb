@@ -11,16 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220713222119) do
+ActiveRecord::Schema.define(version: 20220714175048) do
 
   create_table "games", force: :cascade do |t|
-    t.string   "title"
-    t.string   "thumbnail"
-    t.string   "short_description"
-    t.string   "publisher"
-    t.string   "developer"
-    t.datetime "release_date"
-    t.string   "game_url"
+    t.string "title"
+    t.string "thumbnail"
+    t.string "short_description"
   end
 
   create_table "reviewed_games", force: :cascade do |t|
