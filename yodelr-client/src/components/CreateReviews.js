@@ -6,6 +6,7 @@ function CreateForm() {
   const [thumbnail, setThumbnail] = useState("");
   const [description, setDescription] = useState("");
   const [review, setReview] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("http://localhost:4200/reviewed", {
@@ -28,6 +29,7 @@ function CreateForm() {
   console.log(thumbnail)
   console.log(description)
   console.log(review)
+  
   return (
     <div className="container">
       <form id="form" onSubmit={handleSubmit}>
@@ -82,7 +84,7 @@ function CreateForm() {
               onChange={(e) => setReview(e.target.value)}
             />
             </div>
-            <Button variant="primary" id="form-btn">Submit</Button>{' '}
+            <Button type="submit" variant="primary" id="form-btn">Submit</Button>{' '}
         </div>
       </form>
     </div>
