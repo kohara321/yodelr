@@ -100,7 +100,7 @@ function GameCard({games, onCardChange, value, setValue}){
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={(e) => handleModalChange(e, games)}>Submit</Button>
+          <Button type="submit" variant="primary" onClick={(e) => {handleModalChange(e, games); handleClose()}}>Submit</Button>
     </Modal.Footer>
     </Modal>
     </>
