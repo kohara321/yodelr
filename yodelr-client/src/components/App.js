@@ -9,6 +9,7 @@ import { Route, Switch } from "react-router-dom";
 function App(){
   const [games, setGames] = useState([])
   const [reviewGame, setReviewGame] = useState([])
+  const [value, setValue] = useState();
 
   //initial fetch
   useEffect(() => {
@@ -64,10 +65,10 @@ function handleRemove(reviewToRemove) {
           <NavBar />
           <Switch>
           <Route exact path="/"> 
-            <Home games={games} onCardChange={handleCardChange} />
+            <Home games={games} onCardChange={handleCardChange} value={value} setValue={setValue} />
           </Route>
           <Route path="/reviews">
-            <Reviews reviewedGame={reviewGame} onDeleteClick={handleRemove} />
+            <Reviews reviewedGame={reviewGame} onDeleteClick={handleRemove} value={value} setValue={setValue} />
           </Route>
           {/* <Route path="/create">
             <CreateReviews />
