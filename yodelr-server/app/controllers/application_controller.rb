@@ -26,7 +26,8 @@ class ApplicationController < Sinatra::Base
     reviewed_games = Reviewed_game.create(
       title: params[:title],
       thumbnail: params[:thumbnail],
-      short_description: params[:short_description]
+      short_description: params[:short_description],
+      game_id: params[:game_id]
     )
     reviewed_games.to_json
   end

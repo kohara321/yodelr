@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+    belongs_to :reviewed_game
     belongs_to :game
 
     def self.delete_empty

@@ -30,7 +30,8 @@ function handleCardChange(e, gameToReview){
       body: JSON.stringify({
         title: gameToReview.title,
         thumbnail: gameToReview.thumbnail,
-        short_description: gameToReview.short_description
+        short_description: gameToReview.short_description,
+        game_id: gameToReview.id
       }),
     })
     .then(resp => resp.json())
