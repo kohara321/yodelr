@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220714175048) do
+ActiveRecord::Schema.define(version: 20220714192047) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20220714175048) do
   end
 
   create_table "reviewed_games", force: :cascade do |t|
-    t.string "title"
-    t.string "thumbnail"
-    t.string "short_description"
+    t.string  "title"
+    t.string  "thumbnail"
+    t.string  "short_description"
+    t.integer "game_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "game_id"
-    t.integer "user_id"
     t.string  "review"
   end
 
