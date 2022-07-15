@@ -60,6 +60,7 @@ function handleRemove(reviewToRemove) {
     .then(() =>  setReviewGame(reviewGame.filter((review) => review.title !== reviewToRemove.title)))
 }
 
+
     return(
         <div>
           <NavBar />

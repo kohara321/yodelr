@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/games" do
-    games = Game.find(Game.pluck(:id).sample(10))
+    games = Game.find(Game.pluck(:id).sample(16))
     games.to_json
   end
 
@@ -64,6 +64,12 @@ class ApplicationController < Sinatra::Base
   patch "/reviews/:id" do
     review = Review.find(params[:id])
     review.update(review: params[:review]).to_json
+  end
+
+  delete "/reviews/:id" do
+    review = Review.find(params[:id])
+    review.destroy
+    review.to_json
   end
 
 end

@@ -44,6 +44,16 @@ function ReviewCard({games, onDeleteClick,value,setValue}){
           .then(resp => resp.json())
           .then(review => console.log(review))
         }
+
+        //deletes data from :reviews table
+        function handleBackendDelete(dataToDelete){
+          console.log(dataToDelete)
+          fetch(`http://localhost:4200/reviews/` + dataToDelete.game.reviews[0].id, {
+            method: "DELETE",
+          })
+          .then(resp => resp.json())
+          .then(() => console.log("Deleted..."))
+        }
   
   const reviewInfo = (games.game.reviews[0].review)
 
@@ -57,7 +67,7 @@ function ReviewCard({games, onDeleteClick,value,setValue}){
         <Card.Text>
           {reviewInfo}
         </Card.Text>
-        <Button variant="primary" onClick={() => onDeleteClick(games)}>Delete</Button>
+        <Button variant="primary" onClick={() => {onDeleteClick(games); handleBackendDelete(games)}}>Delete</Button>
         <Button variant="primary" style={{marginLeft: 8}} onClick={handleShow}>Edit</Button>
       </Card.Body>
     </Card>
@@ -87,7 +97,7 @@ function ReviewCard({games, onDeleteClick,value,setValue}){
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={(e) => handleModalClick(e, games)}>Submit</Button>
+          <Button variant="primary" onClick={(e) => {handleModalClick(e, games); handleClose()}}>Submit</Button>
     </Modal.Footer>
     </Modal>
     </>
