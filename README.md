@@ -8,7 +8,7 @@ For this project, you must:
 
 Use Active Record to interact with a database.
 Have at least two models with a one-to-many relationship.
-At a minimum, set up the following API routes in Sinatra:
+At a minimum, set up the following API routes with ActiveRecord:
 create and read actions for both models
 full CRUD capability for one of the models
 Build a separate React frontend application that interacts with the API to perform CRUD actions.
@@ -16,4 +16,4 @@ Use good OO design patterns. You should have separate classes for each of your m
 
 As a user, I can see details of records from a backend database.
 As a user, I can place a persisting review on related record.
-As a user, I can add or delete new records.
+As a user, I can add, edit, or delete new records.
